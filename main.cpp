@@ -220,12 +220,26 @@ void DoiNguoiDungSangMayTinh(int xDoi, int yDoi,int x0,int y0){
 	}
 }
 void DoiMayTinhSangNguoiDung(int xKQ,int yKQ,int x0,int y0){
-	int xDoi,yDoi;
-	
-		xDoi=(xKQ-x0)/5;
-		
+    int xDoi,yDoi;
+    if(xKQ>x0){
+	xDoi=(xKQ-x0)/5.0
+	if(yKQ>y0){
+		yDoi=(y0-yKQ)/5.0		
+	}
+	else{
+		yDoi=(y0-yDoi)/5.0
+	}
+    }
+    else{
+	xDoi=(xKQ-x0)/5.0
+	if(yKQ>y0){
+		yDoi=(y0-yKQ)/5.0;
+	}
+	else{
+		yDoi=(y0-yKQ)/5.0;
+	}
+    }
 }
-
 // ============ THIET LAP NUT CHUC NANG ===============
 		void taoMangButton(button a[]);
 		void doiMauButton(button a, int color);
