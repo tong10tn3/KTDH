@@ -1,0 +1,4 @@
+void veOtoTai();
+void tinhTien();
+
+

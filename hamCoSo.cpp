@@ -50,7 +50,23 @@ void lineDDA(int x1,int y1, int x2,int y2, int c){
 		}
 	}
 }
-
+void lineDDA(double x1,double y1, double x2,double y2, int c){
+	int i,j,step;
+	int dx=x2-x1;
+	int dy=y2-y1;
+	abs(dx)>=abs(dy) ? step=abs(dx) : step=abs(dy);
+	float inc_x = (float) dx/step;
+	float inc_y = (float) dy/step;
+	if(abs(dx)>=abs(dy) || abs(dx)<=abs(dy)){
+		float x=x1;
+		float y=y1;
+		for(i=0;i<=abs(step);i++){
+			putpixel(round(x),round(y),c);
+			x+=inc_x;
+			y+=inc_y;
+		}
+	}
+}
 void ve8diem(int x0,int y0,int x, int y, int color)
 {
 
@@ -73,6 +89,36 @@ void ve8diem(int x0,int y0,int x, int y, int color)
 }
 
 void circleBresenham(int x0,int y0,int r, int color)
+{
+
+  int x=0;int y=r;
+
+  int p=3-2*r;
+
+  while (x<=y)
+
+  {
+
+   ve8diem(x0,y0,x,y,color);
+
+   if(p<0) p=p+4*x+6;
+
+   else
+
+       {
+
+            p=p+4*(x-y)+10;
+
+            y=y-1;
+
+       }
+
+   x=x+1;
+
+  }
+
+}
+void circleBresenham(double x0,double y0,int r, int color)
 {
 
   int x=0;int y=r;
@@ -154,4 +200,30 @@ void Elipse(int x_center,int y_center,int a,int b,int color)// ve elipse
 		}
 		y=y+1;
 	}
+}
+void Ve_HCN(int x1, int y1, int x2, int y2, int color)
+{
+    setcolor(color);
+    line(x1,y1,x1,y2);
+    line(x1,y1,x2,y1);
+    line(x2,y2,x2,y1);
+    line(x2,y2,x1,y2);
+}
+void Ve_HCN_DDA(int x1, int y1, int x2, int y2, int color)
+{
+    setcolor(color);
+    lineDDA(x1,y1,x1,y2,color);
+    lineDDA(x1,y1,x2,y1,color);
+    lineDDA(x2,y2,x2,y1,color);
+    lineDDA(x2,y2,x1,y2,color);
+}
+
+void VePhanCach(double x,double y,int color){
+	setcolor(color);
+	lineDDA(x,y,x+100,y,0);
+	lineDDA(x+10,y+7,x+100+10,y+7,0);
+	lineDDA(x,y,x+10,y+7,0);
+	lineDDA(x+100,y,x+100+10,y+7,0);
+	setfillstyle(1,15);
+	floodfill(x+5,y+1,0);
 }
