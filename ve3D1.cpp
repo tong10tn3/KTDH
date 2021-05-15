@@ -436,7 +436,7 @@ void xuLiTam()
 			setcolor(0);
 			circle(KQMT3[0][0],KQMT3[0][1],banKinhMatTrang);
 		
-			delay(50);
+			delay(1000);
 		}		
 	}
 }

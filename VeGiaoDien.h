@@ -8,7 +8,7 @@ using namespace std;
 #define mauxanhgiongaokhoaccrush 9
 
 #define mauxanhlachuoi 10
-#define mauxanhlacay 2
+#define mauxanhlacay 1
 
 #define mauNutThoat 4
 #define mauKhiChamNutThoat 12
